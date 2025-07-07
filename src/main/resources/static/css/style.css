@@ -215,6 +215,19 @@ input[type="text"]:focus {
     background: rgba(110, 69, 226, 0.05);
 }
 
+.btn-danger {
+    background-color: #FF4757; /* Vibrant red */
+    color: white;
+    margin-top: 1rem;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-danger:hover {
+    background-color: #E84142; /* Slightly darker red */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(232, 65, 66, 0.2);
+}
+
 .payment-schedule {
     margin: 2rem 0;
     border-top: 1px solid var(--border-light);

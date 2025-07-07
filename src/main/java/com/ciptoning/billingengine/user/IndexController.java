@@ -23,6 +23,11 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/shutdown")
+    public void shutdown() {
+        System.exit(0);
+    }
+
     // Get or Create User not accepting null value.
     @PostMapping("/login")
     public String GetOrCreateUser(@RequestParam("username") String username, RedirectAttributes redirectAttributes) {
