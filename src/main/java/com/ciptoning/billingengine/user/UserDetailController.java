@@ -16,35 +16,21 @@ import java.util.List;
 public class UserDetailController {
 
     private final BillingRepository repository;
-    private final BillingSystem.Loan loanService;
+    public LoanService loanService;
 
     public UserDetailController(BillingRepository repository) {
         this.repository = repository;
-        loanService = new BillingSystem.Loan(repository);
-    }
-
-    static class PaymentSchedule {
-        String weeklyLabel;
-        int weeklyPayment;
-
-        public PaymentSchedule(String weeklyLabel, int weeklyPayment) {
-            this.weeklyLabel = weeklyLabel;
-            this.weeklyPayment = weeklyPayment;
-        }
-
-        public String getWeeklyLabel() {
-            return weeklyLabel;
-        }
-
-        public int getWeeklyPayment() {
-            return weeklyPayment;
-        }
+        this.loanService = new LoanService(this.repository);
     }
 
     @GetMapping("/user_detail")
     public String UserDetail(Model model) {
         String username = (String) model.getAttribute("username");
         BillingUser billingUser = repository.findByUsername(username);
+        if (billingUser == null) {
+            return "redirect:/";
+        }
+
         boolean delinquency = loanService.IsDelinquent(billingUser);
 
         if (billingUser.getOutstandingBalance() != 0) {
