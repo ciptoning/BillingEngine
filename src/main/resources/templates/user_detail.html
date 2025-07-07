@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>Billing Engine</title>
+</head>
+<body>
+<h1>Hello, <span th:text="${username}"></span></h1>
+<form action="/create_loan" method="post">
+    <input type="hidden" name="username" th:value="${username}">
+    <button type="submit">Create Loan</button>
+</form>
+<form action="/make_payment" method="post">
+    <input type="hidden" name="username" th:value="${username}">
+    <button type="submit">Make Payment</button>
+</form>
+<form action="/skip_payment" method="post">
+    <input type="hidden" name="username" th:value="${username}">
+    <button type="submit">Skip Payment</button>
+</form>
+<h2>Outstanding balance: <span th:text="${outstanding_balance} ?: 0"></span></h2>
+<h2>Skip Week: <span th:text="${skipped_week} ?: 0"></span></h2>
+<div th:if="${is_delinquent}"><h2>Hi, Delinquent Customers please do payment your date is due.</h2></div>
+<ul>
+    <li th:each="payment_schedule : ${payment_schedules}">
+        <strong th:text="${payment_schedule.weeklyLabel}">Title</strong>: <span th:text="${payment_schedule.weeklyPayment}">Content</span>
+    </li>
+</ul>
+<form action="/logout" method="post">
+    <button type="submit" class="btn btn-danger">Log Out</button>
+</form>
+</body>
+</html>
