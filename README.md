@@ -1,5 +1,5 @@
 # 💸 BillingEngine
-
+![img.png](img.png)
 A simple Spring Boot web application to manage billing details and generate loan payment schedules. It features a basic UI, REST-style controllers, and some business logic around user billing information.
 
 ---
