@@ -2,16 +2,33 @@
 <html lang="en-us">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Billing Engine</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>Billing Engine</h1>
-<h2>Input your name</h2>
-<form action="/login" method="post">
-  <label>
-    <input type="text" name="username" placeholder="Username" required />
-  </label>
-  <button type="submit">Submit</button>
-</form>
+<div class="container">
+  <div class="login-card">
+    <div class="logo-container">
+      <img src="images/logo.svg" alt="Amartha Logo" class="logo">
+    </div>
+
+    <h1>Billing Engine Portal</h1>
+
+    <form action="/login" method="post">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </div>
+
+      <button type="submit" class="btn">Continue</button>
+    </form>
+
+    <div class="footer">
+      <p>© 2025 Ciptoning for Amartha. All rights reserved.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
