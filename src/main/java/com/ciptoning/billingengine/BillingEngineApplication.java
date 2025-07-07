@@ -11,6 +11,7 @@ public class BillingEngineApplication implements CommandLineRunner {
         SpringApplication.run(BillingEngineApplication.class, args);
     }
 
+    // Chose a simple web app for easier testing and better feel during development.
     @Override
     public void run(String... args) {
         System.out.println("=== Application Started ===");

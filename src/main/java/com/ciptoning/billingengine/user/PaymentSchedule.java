@@ -5,6 +5,7 @@ public class PaymentSchedule {
     String weeklyLabel;
     int weeklyPayment;
 
+    // Create a List for webview.
     public PaymentSchedule(String weeklyLabel, int weeklyPayment) {
         this.weeklyLabel = weeklyLabel;
         this.weeklyPayment = weeklyPayment;

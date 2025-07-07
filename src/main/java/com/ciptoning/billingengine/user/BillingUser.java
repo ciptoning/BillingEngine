@@ -2,13 +2,18 @@ package com.ciptoning.billingengine.user;
 
 import jakarta.persistence.*;
 
+// Table for Billing Engine usage.
 @Entity
 @SuppressWarnings("unused")
 public class BillingUser {
+
+    // Id record for user number traceability and primary key.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
+
+    //Outstanding, Remaining Week, Delinquency all have default 0 value.
     private Integer outstandingBalance = 0;
     private Integer weekRemaining = 0;
     private Integer delinquentFrequency = 0;

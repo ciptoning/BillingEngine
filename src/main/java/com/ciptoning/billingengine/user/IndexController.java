@@ -12,15 +12,18 @@ public class IndexController {
 
     private final BillingRepository repository;
 
+    // Controller for index page.
     public IndexController(BillingRepository repository) {
         this.repository = repository;
     }
 
+    // Show index page.
     @GetMapping("/")
     public String Index() {
         return "index";
     }
 
+    // Get or Create User not accepting null value.
     @PostMapping("/login")
     public String GetOrCreateUser(@RequestParam("username") String username, RedirectAttributes redirectAttributes) {
         if (username == null || username.trim().isEmpty()) {

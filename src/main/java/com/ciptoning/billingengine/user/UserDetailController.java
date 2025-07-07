@@ -18,6 +18,7 @@ public class UserDetailController {
     private final BillingRepository repository;
     public LoanService loanService;
 
+    // Constructor for LoanService and Memory Storage (repository).
     public UserDetailController(BillingRepository repository) {
         this.repository = repository;
         this.loanService = new LoanService(this.repository);
