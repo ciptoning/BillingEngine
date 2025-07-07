@@ -65,7 +65,7 @@ BillingEngine is designed for small-scale billing operations such as:
 
 ### ✅ Prerequisites
 
-- Java 17+
+- Java 17+ ([Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html))
 - Maven 3.8+
 
 Check installed versions:
