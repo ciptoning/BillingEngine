@@ -47,7 +47,7 @@ public class UserDetailController {
         BillingUser billingUser = repository.findByUsername(username);
         boolean delinquency = loanService.IsDelinquent(billingUser);
 
-        if (billingUser.getOutstandingBalance() != null) {
+        if (billingUser.getOutstandingBalance() != 0) {
             int outstandingBalance = loanService.GetOutstanding(billingUser);
             int weekRemaining = loanService.GetWeekRemaining(billingUser);
             int skipWeek = loanService.GetSkipWeek(billingUser);
@@ -58,6 +58,7 @@ public class UserDetailController {
                 paymentSchedules.add(new PaymentSchedule("W"+i, BillingConstants.LOAN_AMOUNT_PAID));
             }
 
+            model.addAttribute("paid_loan", BillingConstants.LOAN_WEEK_DUE - weekRemaining);
             model.addAttribute("skipped_week", skipWeek);
             model.addAttribute("outstanding_balance", outstandingBalance);
             model.addAttribute("payment_schedules", paymentSchedules);
