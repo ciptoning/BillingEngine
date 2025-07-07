@@ -23,6 +23,10 @@ public class IndexController {
 
     @PostMapping("/login")
     public String GetOrCreateUser(@RequestParam("username") String username, RedirectAttributes redirectAttributes) {
+        if (username == null || username.trim().isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be empty");
+        }
+
         BillingUser billingUser = repository.findByUsername(username);
 
         if (billingUser == null) {
